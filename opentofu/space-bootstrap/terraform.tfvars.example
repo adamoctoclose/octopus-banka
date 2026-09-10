@@ -1,0 +1,36 @@
+# Copy to terraform.tfvars for local runs. Do not commit real values -
+# .gitignore already excludes *.tfvars.
+#
+# When running from a runbook, prefer TF_VAR_* environment variables over a
+# tfvars file so secrets never touch disk. See the README.
+
+octopus_address = "https://my.octopus.app"
+octopus_api_key = "API-XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+space_name        = "Example Space"
+space_description = "Created by OpenTofu."
+
+space_managers_teams = ["teams-administrators"]
+
+# Override the default Development / Test / Production set if needed.
+# environments = [
+#   {
+#     name                 = "Development"
+#     description          = "Developer integration environment."
+#     deploy_automatically = true
+#   },
+#   {
+#     name               = "Staging"
+#     description        = "Pre-production verification."
+#     use_guided_failure = true
+#   },
+#   {
+#     name                         = "Production"
+#     description                  = "Customer facing environment."
+#     allow_dynamic_infrastructure = false
+#     use_guided_failure           = true
+#   },
+# ]
+
+release_retention_days   = 30
+tentacle_retention_items = 10
