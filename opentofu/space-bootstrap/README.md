@@ -8,7 +8,7 @@ from an Octopus runbook with a prompted variable.
 
 | Resource | Detail |
 | --- | --- |
-| Space | Named from `space_name`, optional slug and space managers |
+| Space | Named from `space_name`, optional slug, managed by the built-in `teams-managers` team |
 | Environments | `Development`, `Test`, `Production` by default, in promotion order |
 | Lifecycle: `Application Lifecycle` | One phase per environment, generated from the `environments` variable |
 | Lifecycle: `Hotfix Lifecycle` | Single phase containing every environment, no promotion gates |
@@ -105,6 +105,11 @@ first space.
 
 ## Notes and gotchas
 
+- **A space must have a manager.** Octopus rejects the create call with
+  *"Please select either teams and/or users as managers of this space"* if none
+  is supplied - it does not fall back to the calling user. [space.tf](space.tf)
+  hardcodes the built-in `teams-managers` team. To name specific users instead,
+  add `space_managers_team_members = ["Users-1"]` to the resource.
 - **Space name length.** Octopus limits space names to 20 characters. The
   `space_name` variable validates this up front so the runbook fails fast with
   a clear message instead of an API error.

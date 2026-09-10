@@ -10,8 +10,6 @@ octopus_api_key = "API-XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 space_name        = "Example Space"
 space_description = "Created by OpenTofu."
 
-space_managers_teams = ["teams-administrators"]
-
 # Override the default Development / Test / Production set if needed.
 # environments = [
 #   {

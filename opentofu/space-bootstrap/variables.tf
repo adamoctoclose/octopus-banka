@@ -47,18 +47,6 @@ variable "space_slug" {
   default     = ""
 }
 
-variable "space_managers_teams" {
-  type        = list(string)
-  description = "Team IDs (e.g. [\"teams-administrators\"]) to add as space managers. Leave empty to let Octopus apply its default."
-  default     = []
-}
-
-variable "space_managers_team_members" {
-  type        = list(string)
-  description = "User IDs (e.g. [\"Users-1\"]) to add as space managers. Leave empty to let Octopus apply its default."
-  default     = []
-}
-
 ##
 ## Environments
 ##
